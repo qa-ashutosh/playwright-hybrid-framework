@@ -1,0 +1,58 @@
+{
+  "userObject": {
+    "required": ["id", "email", "first_name", "last_name", "avatar"],
+    "types": {
+      "id": "number",
+      "email": "string",
+      "first_name": "string",
+      "last_name": "string",
+      "avatar": "string"
+    }
+  },
+  "listResponse": {
+    "required": ["page", "per_page", "total", "total_pages", "data"],
+    "types": {
+      "page": "number",
+      "per_page": "number",
+      "total": "number",
+      "total_pages": "number",
+      "data": "array"
+    }
+  },
+  "loginResponse": {
+    "required": ["token"],
+    "types": {
+      "token": "string"
+    }
+  },
+  "registerResponse": {
+    "required": ["id", "token"],
+    "types": {
+      "id": "number",
+      "token": "string"
+    }
+  },
+  "createUserResponse": {
+    "required": ["name", "job", "id", "createdAt"],
+    "types": {
+      "name": "string",
+      "job": "string",
+      "id": "string",
+      "createdAt": "string"
+    }
+  },
+  "updateUserResponse": {
+    "required": ["name", "job", "updatedAt"],
+    "types": {
+      "name": "string",
+      "job": "string",
+      "updatedAt": "string"
+    }
+  },
+  "errorResponse": {
+    "required": ["error"],
+    "types": {
+      "error": "string"
+    }
+  }
+}

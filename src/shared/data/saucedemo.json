@@ -1,0 +1,49 @@
+{
+  "users": {
+    "standard": {
+      "username": "standard_user",
+      "password": "secret_sauce"
+    },
+    "locked": {
+      "username": "locked_out_user",
+      "password": "secret_sauce"
+    },
+    "problem": {
+      "username": "problem_user",
+      "password": "secret_sauce"
+    },
+    "invalid": {
+      "username": "invalid_user",
+      "password": "wrong_password"
+    }
+  },
+  "checkout": {
+    "valid": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "postalCode": "10001"
+    },
+    "missingFirstName": {
+      "firstName": "",
+      "lastName": "Doe",
+      "postalCode": "10001"
+    },
+    "missingLastName": {
+      "firstName": "John",
+      "lastName": "",
+      "postalCode": "10001"
+    },
+    "missingPostalCode": {
+      "firstName": "John",
+      "lastName": "Doe",
+      "postalCode": ""
+    }
+  },
+  "products": {
+    "expectedCount": 6,
+    "firstProductAZ": "Sauce Labs Backpack",
+    "firstProductZA": "Test.allTheThings() T-Shirt (Red)",
+    "firstProductLowHigh": "Sauce Labs Onesie",
+    "firstProductHighLow": "Sauce Labs Fleece Jacket"
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "auth": {
+    "validLogin": {
+      "email": "eve.holt@reqres.in",
+      "password": "cityslicka"
+    },
+    "validRegister": {
+      "email": "eve.holt@reqres.in",
+      "password": "pistol"
+    },
+    "missingPassword": {
+      "email": "eve.holt@reqres.in"
+    },
+    "unregisteredEmail": {
+      "email": "notregistered@reqres.in",
+      "password": "somepassword"
+    }
+  },
+  "users": {
+    "validId": 1,
+    "invalidId": 999,
+    "page1": 1,
+    "page2": 2,
+    "expectedPerPage": 6
+  },
+  "createUser": {
+    "name": "John QA",
+    "job": "Automation Engineer"
+  },
+  "updateUser": {
+    "name": "Jane QA",
+    "job": "Lead QA Engineer"
+  }
+}
