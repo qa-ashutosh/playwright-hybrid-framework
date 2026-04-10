@@ -37,13 +37,41 @@
       "firstName": "John",
       "lastName": "Doe",
       "postalCode": ""
-    }
+    },
+    "multipleUsers": [
+      {
+        "label": "US customer",
+        "firstName": "Alice",
+        "lastName": "Smith",
+        "postalCode": "90210"
+      },
+      {
+        "label": "UK customer",
+        "firstName": "Bob",
+        "lastName": "Jones",
+        "postalCode": "SW1A 1AA"
+      },
+      {
+        "label": "numeric only postal",
+        "firstName": "Carol",
+        "lastName": "White",
+        "postalCode": "00000"
+      }
+    ]
   },
   "products": {
     "expectedCount": 6,
     "firstProductAZ": "Sauce Labs Backpack",
     "firstProductZA": "Test.allTheThings() T-Shirt (Red)",
     "firstProductLowHigh": "Sauce Labs Onesie",
-    "firstProductHighLow": "Sauce Labs Fleece Jacket"
+    "firstProductHighLow": "Sauce Labs Fleece Jacket",
+    "allProducts": [
+      "Sauce Labs Backpack",
+      "Sauce Labs Bike Light",
+      "Sauce Labs Bolt T-Shirt",
+      "Sauce Labs Fleece Jacket",
+      "Sauce Labs Onesie",
+      "Test.allTheThings() T-Shirt (Red)"
+    ]
   }
 }
