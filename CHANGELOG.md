@@ -9,7 +9,7 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) · Versi
 
 ---
 
-## [1.2.0] — 2026-04-XX
+## [1.2.0] — 2026-04-14
 ### `feat: add cross-layer contract validation and extended API edge cases`
 
 #### API — New Test Specs
