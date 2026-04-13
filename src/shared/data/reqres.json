@@ -19,6 +19,8 @@
   "users": {
     "validId": 1,
     "invalidId": 999,
+    "zeroId": 0,
+    "outOfRangePage": 999,
     "page1": 1,
     "page2": 2,
     "expectedPerPage": 6
@@ -30,5 +32,8 @@
   "updateUser": {
     "name": "Jane QA",
     "job": "Lead QA Engineer"
+  },
+  "patchUser": {
+    "job": "Principal QA Architect"
   }
 }
