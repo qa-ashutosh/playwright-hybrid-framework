@@ -7,11 +7,10 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "ignoreDeprecations": "6.0",
     "resolveJsonModule": true,
     "outDir": "./dist",
-    "rootDir": "./",
     "baseUrl": ".",
+    "ignoreDeprecations": "5.0",
     "paths": {
       "@pages/*": ["src/ui/pages/*"],
       "@fixtures/*": ["src/ui/fixtures/*"],

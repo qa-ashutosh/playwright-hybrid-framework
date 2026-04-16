@@ -1,18 +1,21 @@
-# CI pipeline — full implementation coming in a future commit
-# Placeholder added to establish workflow directory structure
-
 name: Playwright Tests
 
 on:
-  workflow_dispatch:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
-  test:
+  test-api:
+    name: API Tests
     runs-on: ubuntu-latest
+
+    env:
+      API_BASE_URL: https://reqres.in
+      API_KEY: ${{ secrets.API_KEY }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -26,7 +29,53 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps chromium
 
-      - name: Run tests
-        env:
-          API_KEY: ${{ secrets.API_KEY }}
-        run: npm test
+      - name: Run API tests
+        run: npm run test:api
+
+      - name: Upload API test report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-report
+          path: playwright-report/
+          retention-days: 7
+
+  test-ui:
+    name: UI Tests — ${{ matrix.browser }}
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox]
+
+    env:
+      UI_BASE_URL: https://www.saucedemo.com
+      SAUCE_STANDARD_USER: ${{ secrets.SAUCE_STANDARD_USER }}
+      SAUCE_PASSWORD: ${{ secrets.SAUCE_PASSWORD }}
+      SAUCE_LOCKED_USER: ${{ secrets.SAUCE_LOCKED_USER }}
+      SAUCE_PROBLEM_USER: ${{ secrets.SAUCE_PROBLEM_USER }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Run UI tests on ${{ matrix.browser }}
+        run: npx playwright test --project=ui-tests --browser=${{ matrix.browser }}
+
+      - name: Upload UI test report — ${{ matrix.browser }}
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-test-report-${{ matrix.browser }}
+          path: playwright-report/
+          retention-days: 7
