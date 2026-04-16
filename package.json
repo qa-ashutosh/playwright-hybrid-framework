@@ -1,6 +1,6 @@
 {
   "name": "playwright-hybrid-framework",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "Hybrid UI + API test automation framework using Playwright and TypeScript",
   "scripts": {
     "test": "playwright test",
@@ -8,12 +8,15 @@
     "test:api": "playwright test --project=api-tests",
     "test:headed": "playwright test --headed",
     "test:debug": "playwright test --debug",
+    "test:firefox": "playwright test --project=ui-tests-firefox",
     "report": "playwright show-report"
   },
   "devDependencies": {
     "@playwright/test": "^1.44.0",
     "@types/node": "^20.12.0",
     "typescript": "^5.4.0",
-    "dotenv": "^16.4.0"
+    "dotenv": "^16.4.0",
+    "ajv": "^8.12.0",
+    "ajv-formats": "^2.1.1"
   }
 }

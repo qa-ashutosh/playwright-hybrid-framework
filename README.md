@@ -166,6 +166,10 @@ HTML report is generated at `reports/html-report/index.html`.
 
 ---
 
+
+###  If this saves you time, consider giving it a ⭐ — it helps more people discover it.
+---
+
 ## License
 
 [MIT](LICENSE)
