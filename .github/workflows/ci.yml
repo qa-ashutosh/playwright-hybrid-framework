@@ -41,13 +41,17 @@ jobs:
           retention-days: 7
 
   test-ui:
-    name: UI Tests — ${{ matrix.browser }}
+    name: UI Tests — ${{ matrix.project }}
     runs-on: ubuntu-latest
 
     strategy:
       fail-fast: false
       matrix:
-        browser: [chromium, firefox]
+        include:
+          - project: ui-tests
+            browser: chromium
+          - project: ui-tests-firefox
+            browser: firefox
 
     env:
       UI_BASE_URL: https://www.saucedemo.com
@@ -69,13 +73,13 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install --with-deps ${{ matrix.browser }}
 
-      - name: Run UI tests on ${{ matrix.browser }}
-        run: npx playwright test --project=ui-tests --browser=${{ matrix.browser }}
+      - name: Run UI tests — ${{ matrix.project }}
+        run: npx playwright test --project=${{ matrix.project }}
 
-      - name: Upload UI test report — ${{ matrix.browser }}
+      - name: Upload UI test report — ${{ matrix.project }}
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: ui-test-report-${{ matrix.browser }}
+          name: ui-test-report-${{ matrix.project }}
           path: playwright-report/
           retention-days: 7
