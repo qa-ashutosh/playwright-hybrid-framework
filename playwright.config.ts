@@ -6,7 +6,13 @@ dotenv.config();
 export default defineConfig({
   testDir: "./src",
   timeout: 30000,
-  expect: { timeout: 5000 },
+  expect: {
+    timeout: 5000,
+    toHaveScreenshot: {
+      maxDiffPixelRatio: 0.02, // allow up to 2% pixel diff
+      animations: "disabled",
+    },
+  },
   fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 1 : 0,
@@ -38,6 +44,24 @@ export default defineConfig({
       testDir: "./src/ui/tests",
       use: {
         ...devices["Desktop Firefox"],
+        baseURL: process.env.UI_BASE_URL || "https://www.saucedemo.com",
+        headless: true,
+      },
+    },
+    {
+      name: "visual-tests",
+      testDir: "./src/ui/tests/visual",
+      use: {
+        ...devices["Desktop Chrome"],
+        baseURL: process.env.UI_BASE_URL || "https://www.saucedemo.com",
+        headless: true,
+      },
+    },
+    {
+      name: "a11y-tests",
+      testDir: "./src/ui/tests/a11y",
+      use: {
+        ...devices["Desktop Chrome"],
         baseURL: process.env.UI_BASE_URL || "https://www.saucedemo.com",
         headless: true,
       },
