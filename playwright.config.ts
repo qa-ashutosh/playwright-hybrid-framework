@@ -34,6 +34,7 @@ export default defineConfig({
     {
       name: "ui-tests",
       testDir: "./src/ui/tests",
+      testIgnore: ["**/visual/**", "**/a11y/**"],
       use: {
         ...devices["Desktop Chrome"],
         baseURL: process.env.UI_BASE_URL || "https://www.saucedemo.com",
@@ -43,6 +44,7 @@ export default defineConfig({
     {
       name: "ui-tests-firefox",
       testDir: "./src/ui/tests",
+      testIgnore: ["**/visual/**", "**/a11y/**"],
       use: {
         ...devices["Desktop Firefox"],
         baseURL: process.env.UI_BASE_URL || "https://www.saucedemo.com",
